@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout-dashboard
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: rollout-dashboard
+  template:
+    metadata:
+      labels:
+        app: rollout-dashboard
+    spec:
+      containers:
+      - name: rollout-dashboard
+        image: quay.io/argoproj/kubectl-argo-rollouts:master
+        command:
+          - dashboard
+          - -n
+          - rollouts-demo
+
+        ports:
+        - name: http
+          containerPort: 3100
+          protocol: TCP
