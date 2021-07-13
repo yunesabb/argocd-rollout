@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: rollout-dashboard
 spec:
@@ -16,11 +16,8 @@ spec:
       containers:
       - name: rollout-dashboard
         image: quay.io/argoproj/kubectl-argo-rollouts:master
-        command:
-          - dashboard
-          - -n
-          - rollouts-demo
-
+        command: ["/bin/kubectl-argo-rollouts"]
+        args: ["dashboard", "-n", "argocd-rollout" ]
         ports:
         - name: http
           containerPort: 3100

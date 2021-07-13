@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rollout-dashboard-http
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`rollout-dashboard-test.local`)
+    kind: Rule
+    services:
+    - name: rollout-dashboard
+      port: 80
+      namespace: argocd-rollout

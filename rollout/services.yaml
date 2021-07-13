@@ -9,10 +9,6 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 8080
-  - name: 443-tcp
-    port: 443
-    protocol: TCP
-    targetPort: 8080
   selector:
     app: rollouts-demo
   sessionAffinity: None
@@ -26,10 +22,6 @@ spec:
   ports:
   - name: 80-tcp
     port: 80
-    protocol: TCP
-    targetPort: 8080
-  - name: 443-tcp
-    port: 443
     protocol: TCP
     targetPort: 8080
   selector:

@@ -12,18 +12,18 @@ spec:
     - name: argocd-rollout
       port: 80
       namespace: argocd-rollout
-# ---
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: argocd-rollout-http
-# spec:
-#   entryPoints:
-#     - web
-#   routes:
-#   - match: Host(`argocd-rollout-canary-preview-test.local`)
-#     kind: Rule
-#     services:
-#     - name: rollouts-demo-preview
-#       port: 80
-#       namespace: argocd-rollout
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-rollout-canary-preview-http
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`argocd-rollout-canary-preview-test.local`)
+    kind: Rule
+    services:
+    - name: rollouts-demo-preview
+      port: 80
+      namespace: argocd-rollout
