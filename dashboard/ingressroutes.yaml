@@ -25,6 +25,6 @@ spec:
     kind: Rule
     services:
     - name: rollout-dashboard
-      port: 443
+      port: 80
       namespace: argocd-rollout
   tls: {}
