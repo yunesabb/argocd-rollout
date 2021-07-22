@@ -14,16 +14,18 @@ rules:
   # - apps
   # - argoproj.io
   resources:
-  - pods
-  - replicasets
-  - rollouts
-  - experiments
-  - analysisruns
+  # - pods
+  # - replicasets
+  # - rollouts
+  # - experiments
+  # - analysisruns
+  - "*"
   verbs:
   - update
   - list
   - get
   - watch
+  - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
