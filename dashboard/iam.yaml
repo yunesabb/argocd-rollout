@@ -19,6 +19,7 @@ rules:
   - experiments
   - analysisruns
   verbs:
+  - update
   - list
   - get
   - watch
