@@ -27,3 +27,4 @@ spec:
     - name: rollout-dashboard
       port: 443
       namespace: argocd-rollout
+  tls: {}
