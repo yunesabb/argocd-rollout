@@ -9,9 +9,10 @@ metadata:
   name: rollout-dashboard
 rules:
 - apiGroups:
-  - ""
-  - apps
-  - argoproj.io
+  - "*"
+  # - ""
+  # - apps
+  # - argoproj.io
   resources:
   - pods
   - replicasets
