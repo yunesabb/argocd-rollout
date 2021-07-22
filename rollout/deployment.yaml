@@ -25,6 +25,7 @@ spec:
       labels:
         app: rollouts-demo
     spec:
+      serviceAccountName: rollout-dashboard
       containers:
       - name: rollouts-demo
         image: argoproj/rollouts-demo:red
