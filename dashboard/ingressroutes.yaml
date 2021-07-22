@@ -12,3 +12,18 @@ spec:
     - name: rollout-dashboard
       port: 80
       namespace: argocd-rollout
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rollout-dashboard-https
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`rollout-dashboard-test.local`)
+    kind: Rule
+    services:
+    - name: rollout-dashboard
+      port: 443
+      namespace: argocd-rollout
