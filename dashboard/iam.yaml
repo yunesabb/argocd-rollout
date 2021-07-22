@@ -11,11 +11,12 @@ rules:
 - apiGroups:
   - '*'
   resources:
-  - pods
-  - replicasets
-  - rollouts
-  - experiments
-  - analysisruns
+  # - pods
+  # - replicasets
+  # - rollouts
+  # - experiments
+  # - analysisruns
+  - '*'
   verbs:
   - list
   - get
