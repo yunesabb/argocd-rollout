@@ -11,8 +11,8 @@ rules:
 - apiGroups:
   - '*'
   resources:
-  - pod
-  - replicaset
+  - pods
+  - replicasets
   - rollouts
   - experiments
   - analysisruns
