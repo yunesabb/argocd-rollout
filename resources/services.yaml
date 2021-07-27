@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollout-dashboard
+  name: argocd-toi
 spec:
   ports:
   - name: 80-tcp
     port: 80
     protocol: TCP
-    targetPort: 3100
+    targetPort: 8080
   selector:
-    app: rollout-dashboard
+    app: argocd-toi
   sessionAffinity: None
   type: ClusterIP

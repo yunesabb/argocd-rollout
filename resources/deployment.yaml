@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-toi
+spec:
+  replicas: 3
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: argocd-toi
+  template:
+    metadata:
+      labels:
+        app: argocd-toi
+    spec:
+      containers:
+      - name: argocd-toi
+        image: argoproj/rollouts-demo:red
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 1Mi
+            cpu: 5m

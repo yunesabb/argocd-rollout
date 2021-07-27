@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: argocd-toi-http
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`argocd-toi-demo-test.local`)
+    kind: Rule
+    services:
+    - name: argocd-toi
+      port: 80
+      namespace: argocd-toi
