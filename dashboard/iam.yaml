@@ -35,6 +35,5 @@ roleRef:
   name: rollout-dashboard
 subjects:
 - kind: ServiceAccount
-  name: rollout-dashboard
-  namespace: argocd-rollout
+  name: default
 ---

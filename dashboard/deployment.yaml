@@ -13,7 +13,7 @@ spec:
       labels:
         app: rollout-dashboard
     spec:
-      serviceAccountName: rollout-dashboard
+      # serviceAccountName: rollout-dashboard
       containers:
       - name: rollout-dashboard
         image: quay.io/argoproj/kubectl-argo-rollouts:master
