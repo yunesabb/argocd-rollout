@@ -4,22 +4,20 @@ metadata:
   name: rollout-dashboard
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: rollout-dashboard
 rules:
 - apiGroups:
-  - "*"
-  # - ""
-  # - apps
-  # - argoproj.io
+  - ""
+  - apps
+  - argoproj.io
   resources:
-  # - pods
-  # - replicasets
-  # - rollouts
-  # - experiments
-  # - analysisruns
-  - "*"
+  - pods
+  - replicasets
+  - rollouts
+  - experiments
+  - analysisruns
   verbs:
   - update
   - list
@@ -28,14 +26,15 @@ rules:
   - patch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: rollout-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: rollout-dashboard
 subjects:
 - kind: ServiceAccount
   name: rollout-dashboard
+  namespace: argocd-rollout
 ---
