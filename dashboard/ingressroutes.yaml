@@ -11,7 +11,7 @@ spec:
     services:
     - name: rollout-dashboard
       port: 80
-      namespace: argocd-rollout
+      namespace: argocd-rollouts-dashboard
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
@@ -26,5 +26,5 @@ spec:
     services:
     - name: rollout-dashboard
       port: 80
-      namespace: argocd-rollout
+      namespace: argocd-rollouts-dashboard
   tls: {}

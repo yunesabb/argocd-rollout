@@ -13,12 +13,12 @@ spec:
       labels:
         app: rollout-dashboard
     spec:
-      # serviceAccountName: rollout-dashboard
+      serviceAccountName: sa-rollout-dashboard
       containers:
       - name: rollout-dashboard
         image: quay.io/argoproj/kubectl-argo-rollouts:master
         command: ["/bin/kubectl-argo-rollouts"]
-        args: ["dashboard", "-n", "argocd-rollout" ]
+        args: ["dashboard", "-n", "argocd-rollouts" ]
         ports:
         - name: http
           containerPort: 3100

@@ -1,0 +1,32 @@
+---
+# Primary Service for production traffic
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollouts-bluegreen-demo
+spec:
+  ports:
+  - name: 80-tcp
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: rollouts-bluegreen-demo
+  sessionAffinity: None
+  type: ClusterIP
+---
+# Preview Service for canary traffic
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollouts-bluegreen-demo-preview
+spec:
+  ports:
+  - name: 80-tcp
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: rollouts-bluegreen-demo
+  sessionAffinity: None
+  type: ClusterIP

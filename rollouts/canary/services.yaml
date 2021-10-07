@@ -1,8 +1,9 @@
 ---
+# Primary Service for production traffic
 apiVersion: v1
 kind: Service
 metadata:
-  name: argocd-rollout
+  name: rollouts-canary-demo
 spec:
   ports:
   - name: 80-tcp
@@ -10,14 +11,15 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: rollouts-demo
+    app: rollouts-canary-demo
   sessionAffinity: None
   type: ClusterIP
 ---
+# Preview Service for canary traffic
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-demo-preview
+  name: rollouts-canary-demo-preview
 spec:
   ports:
   - name: 80-tcp
@@ -25,6 +27,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: rollouts-demo
+    app: rollouts-canary-demo
   sessionAffinity: None
   type: ClusterIP

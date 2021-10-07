@@ -1,31 +1,37 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: rollout-dashboard
+  name: sa-rollout-dashboard
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: rollout-dashboard
+  name: cr-rollout-dashboard
 rules:
-- apiGroups:
-  - '*'
-  resources:
-  - '*'
-  verbs:
-  - update
-  - list
-  - get
-  - patch
+- apiGroups: ["*"]
+  # - ""
+  # - apps
+  # - argoproj.io
+  resources: ["*"]
+  # - pods
+  # - replicasets
+  # - rollouts
+  # - experiments
+  # - analysisruns
+  verbs: ["*"]
+  # - update
+  # - list
+  # - get
+  # - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
-  name: rollout-dashboard
+  name: crb-rollout-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: rollout-dashboard
+  name: cr-rollout-dashboard
 subjects:
 - kind: ServiceAccount
-  name: default
+  name: sa-rollout-dashboard
