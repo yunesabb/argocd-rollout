@@ -28,3 +28,18 @@ spec:
     - name: rollouts-canary-demo-preview
       port: 80
       namespace: argocd-rollouts
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rollouts-canary-demo-stable-http
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`rollouts-canary-demo-stable.local`)
+    kind: Rule
+    services:
+    - name: rollouts-canary-demo-stable
+      port: 80
+      namespace: argocd-rollouts

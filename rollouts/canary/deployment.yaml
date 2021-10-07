@@ -7,6 +7,7 @@ spec:
   strategy:
     canary:
       canaryService: rollouts-canary-demo-preview
+      stableService: rollouts-canary-demo-stable
       steps:
       - setWeight: 20
       - pause: {}
