@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rollout-dashboard
+  name: argo-rollouts-dashboard
 spec:
   replicas: 1
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollout-dashboard
+      app: argo-rollouts-dashboard
   template:
     metadata:
       labels:
-        app: rollout-dashboard
+        app: argo-rollouts-dashboard
     spec:
       serviceAccountName: argo-rollouts-dashboard
       containers:
-      - name: rollout-dashboard
+      - name: argo-rollouts-dashboard
         image: quay.io/argoproj/kubectl-argo-rollouts:master
         command: ["/bin/kubectl-argo-rollouts"]
         args: ["dashboard", "-n", "argocd-rollouts" ]
