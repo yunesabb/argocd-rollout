@@ -4,7 +4,7 @@ metadata:
   name: sa-rollout-dashboard
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
   name: cr-rollout-dashboard
 rules:
@@ -25,12 +25,12 @@ rules:
   # - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
   name: crb-rollout-dashboard
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  kind: Role
   name: cr-rollout-dashboard
 subjects:
 - kind: ServiceAccount
