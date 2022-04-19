@@ -16,7 +16,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: rollout-dashboard-https
+  name: argo-rollouts-dashboard-https
 spec:
   entryPoints:
     - websecure
@@ -24,7 +24,7 @@ spec:
   - match: Host(`rollout-dashboard-test.local`)
     kind: Rule
     services:
-    - name: rollout-dashboard
+    - name: argo-rollouts-dashboard
       port: 3100
       namespace: argocd-rollouts
   tls: {}
